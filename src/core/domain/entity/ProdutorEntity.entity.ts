@@ -1,13 +1,47 @@
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+
+@Entity({name:'produtores'})
 export class ProdutorEntity{
+
+        @PrimaryGeneratedColumn()
         id:number;
-        documento:string;                // CPF ou CNPJ
-        nomeProdutor:string                     // Nome do produtor
-        nomefazenda:string              // Nome da fazenda (propriedade)
-        cidade:string;                  // Cidade
-        estado:string;                  // Estado
-        area_fazenda_hecta:number;      // Área total da fazenda (em hectares)
-        area_agricultavel_hecta:number; // Área agricultável (em hectares)
-        area_vegetacao_hecta:number;    // Área de vegetação (em hectares)
-        safra:number;                   // Safras (ex: Safra 2021, Safra 2022)
-        cultura_plantada:string;        // Culturas plantadas (ex.: Soja na Safra 2021, Milho na Safra 2021, Café na Safra 2022)
+
+        @Column({name:'documento',length:11,nullable:false})
+        documento:string;               
+
+        @Column({name:'nomeprodutor',length:100,nullable:false})
+        nomeProdutor:string             
+
+        @Column({name:'nomefazenda',length:100,nullable:false})
+        nomefazenda:string              
+
+        @Column({name:'cidade',length:100,nullable:false})
+        cidade:string;                  
+
+        @Column({name:'estado',length:100,nullable:false})
+        estado:string;                  
+
+        @Column({name:'area_fazenda_hecta',nullable:false}) 
+        area_fazenda_hecta:number;      
+
+        @Column({name:'area_agricultavel_hecta',nullable:false}) 
+        area_agricultavel_hecta:number; 
+
+        @Column({name:'area_vegetacao_hecta',nullable:false}) 
+        area_vegetacao_hecta:number;    
+
+        @Column({name:'safra',nullable:false}) 
+        safra:number;                   
+
+        @Column({name:'cultura_plantada',length:100,nullable:false})
+        cultura_plantada:string;        
+
+        @CreateDateColumn({name:'created_at'})
+        created_at:string;
+
+        @CreateDateColumn({name:'udpated_at'})
+        udpated_at:string;
+
+        @CreateDateColumn({name:'deleted_at'})
+        deleted_at:string;
 } 

@@ -18,7 +18,7 @@ export class AtualizarProdutoDTO {
     nomefazenda:string              // Nome da fazenda (propriedade)
 
     @IsString({message:'O campo Cidade precisa ser um texto'})
-    @IsNotEmpty({message:'Cidade é um campo obrigatorio!'})
+    @IsNotEmpty({message:'Cidade é um campo obrigatorio!'}) 
     @IsOptional()
     cidade:string;                  // Cidade
 
