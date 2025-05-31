@@ -1,25 +1,25 @@
 #version: "3.9"
 services:
-  node:
-    build:
-      context: .
-      args:
-        PORTA: 8080
-    container_name: node_teste
-    ports:
-      - 8080:8080
-    volumes:
-      - .:/app
-      - /app/node_modules
-    networks:
-      - teste-bridge 
-    command: "npm run dev"
-    depends_on:
-      - banco
+  # node:
+  #   build:
+  #     context: .
+  #     args:
+  #       PORTA: 8080
+  #   container_name: node_teste
+  #   ports:
+  #     - 8080:8080
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+  #   networks:
+  #     - teste-bridge 
+  #   command: "npm run dev"
+  #   depends_on:
+  #     - banco
   
   banco:
     image: postgres:11
-    container_name: postgres
+    container_name: postgresbrain
     ports:
       - 5432:5432
     networks:
@@ -27,11 +27,11 @@ services:
     environment:
       POSTGRES_PASSWORD: admin
     volumes:
-      - ./bancovolume:/var/lib/postgresql/data
+      - ./bancovolumebrain:/var/lib/postgresql/data
       
   swagger:
     image: docker.swagger.io/swaggerapi/swagger-ui
-    container_name: swagger_fiap_loja
+    container_name: swagger_brain_ag
     ports:
       - 8081:8080
     networks:
