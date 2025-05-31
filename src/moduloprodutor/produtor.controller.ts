@@ -30,7 +30,7 @@ export class ProdutorController{
         produtorEntity.area_vegetacao_hecta = dadosusuario.area_vegetacao_hecta
         produtorEntity.safra = dadosusuario.safra
         produtorEntity.cultura_plantada = dadosusuario.cultura_plantada
-        // this.repo.salvar(produtorEntity)
+
         this.produtorService.criarProdutor(produtorEntity)
         return produtorEntity;
     }
@@ -44,7 +44,6 @@ export class ProdutorController{
     @Put('/:id')
     async atualizarProdutor(@Param('id') id:number, @Body() dadosAtualizar:AtualizarProdutoDTO){
         console.log('passando na atualizar')
-        // const produtorAtualizado = await this.repo.atualizarProdutor(id,dadosAtualizar)
         await this.produtorService.updateProdutor(id,dadosAtualizar)
         const produtorAtualizado = await this.produtorService.listaProdutoresPorId(id)
         return { 
@@ -56,7 +55,6 @@ export class ProdutorController{
     @Delete('/:id')
     async deletarProdutor(@Param('id') id:number){
         console.log('passando na deletar')
-        // const produtorRemovido = await this.repo.removerProdutor(id)
         const produtorRemovido = await this.produtorService.deleteProdutor(id)
 
         return {
