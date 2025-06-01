@@ -54,6 +54,11 @@ Proposta é criar uma aplicação para gerenciar o cadastro de produtores rurais
 3. Como docker instalado na sua maquina, execute: "docker compose up -d" e todos os componentes serão executados e ficarão prontos para ser usado
 4. A api node será responsavel por criar o base de dados brainag, essa execução acontecerá 20 segundo apos a api subir.
 
+## TESTES
+1. Os testes estão dentro do moduloprodutor
+2. Para executar os testes basta executar npm run test
+
+
 ## No knexfile 
 1. atualmente está como host "banco" mas pode ser alterado para localhost 
 
