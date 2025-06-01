@@ -1,98 +1,72 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# BRAIN AG
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Sobre o Projeto
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Proposta é criar uma aplicação para gerenciar o cadastro de produtores rurais, com os seguintes dados:
 
-## Description
+- CPF ou CNPJ
+- Nome do produtor
+- Nome da fazenda (propriedade)
+- Cidade
+- Estado
+- Área total da fazenda (em hectares)
+- Área agricultável (em hectares)
+- Área de vegetação (em hectares)
+- Safras (ex: Safra 2021, Safra 2022)
+- Culturas plantadas (ex.: Soja na Safra 2021, Milho na Safra 2021, Café na Safra 2022)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Project setup
+## Requisitos do Negocio para Backend
+- Desenvolva uma API REST.
+- Utilize Docker para distribuir a aplicação.
+- Utilize Postgres como banco de dados.
+- Crie os endpoints necessários para atender os requisitos de negócio.
+- Desenvolva testes unitários e integrados.
+- Estruture dados "mockados" para testes.
+- Inclua logs para garantir a observabilidade do sistema, facilitando o monitoramento e a identificação de possíveis problemas.
+- Utilize um framework de ORM.
 
-```bash
-$ npm install
-```
 
-## Compile and run the project
+## Estrutura
 
-```bash
-# development
-$ npm run start
+- Swagger: Documentação do projeto
+- Códigos-fonte em Arquitetura Hexagonal
+- Banco de dados Postgres
+- Foi criado um script de iniciação do banco de dados que roda automaticamente 20 segundo apos o deploy do backend.
+- Docker
+- A aplicação demora cerca de 1 minuto para ficar completamente online devido ao banco e criação automatica do banco
 
-# watch mode
-$ npm run start:dev
 
-# production mode
-$ npm run start:prod
-```
+## Tecnologias Utilizadas
+- Typescript
+- Node.js
+- NestJS
+- Postgres
+- Knex
+- TypeORM
+- Docker
+- Swagger
 
-## Run tests
 
-```bash
-# unit tests
-$ npm run test
+## Como Executar
+1. Todas os componentes do projetos são iniciados usando docker compose ( que pode levar 1 minuto)
+2. para iniciar:  docker compose up -d
+3. Como docker instalado na sua maquina, execute: "docker compose up -d" e todos os componentes serão executados e ficarão prontos para ser usado
+4. A api node será responsavel por criar o base de dados brainag, essa execução acontecerá 20 segundo apos a api subir.
 
-# e2e tests
-$ npm run test:e2e
+## No knexfile 
+1. atualmente está como host "banco" mas pode ser alterado para localhost 
 
-# test coverage
-$ npm run test:cov
-```
+## Serviços:
+- Swagger: http://localhost:8081/swagger/
+- Backend: http://localhost:3000
+- Banco: brainag (será criado automaticamente pela api 10/20 segundos apos a inicialização do banco)
 
-## Deployment
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## Autores
+- Nome: Herlessi Nogueira
+- Email: herlessi@gmail.com
+- Discord: herlessi
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## Licença
+Este projeto é apenas para fins acadêmicos.
