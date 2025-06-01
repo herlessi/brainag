@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { AtualizarProdutoDTO } from "src/core/domain/dto/AtualizarProdutoDTO.dto";
-import { ProdutorEntity } from "src/core/domain/entity/ProdutorEntity.entity";
+import { AtualizarProdutoDTO } from "../../domain/dto/AtualizarProdutoDTO.dto";
+import { ProdutorEntity } from "../../domain/entity/ProdutorEntity.entity";
 import { Repository } from "typeorm";
 
 @Injectable()

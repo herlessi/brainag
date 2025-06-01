@@ -1,9 +1,9 @@
 import { Body, Controller, Delete, Get, Inject, Param, Post, Put } from "@nestjs/common";
-import { IProdutorRepository } from "src/core/application/ports/out/IProdutorRepository";
-import { ProdutorService } from "src/core/application/services/Produtor.service";
-import { AtualizarProdutoDTO } from "src/core/domain/dto/AtualizarProdutoDTO.dto";
-import { CriarProdutorDTO } from "src/core/domain/dto/CriarProdutorDTO.dto";
-import { ProdutorEntity } from "src/core/domain/entity/ProdutorEntity.entity";
+import { IProdutorRepository } from "../core/application/ports/out/IProdutorRepository";
+import { ProdutorService } from "../core/application/services/Produtor.service";
+import { AtualizarProdutoDTO } from "../core/domain/dto/AtualizarProdutoDTO.dto";
+import { CriarProdutorDTO } from "../core/domain/dto/CriarProdutorDTO.dto";
+import { ProdutorEntity } from "../core/domain/entity/ProdutorEntity.entity";
 
 @Controller('/produtor')
 export class ProdutorController{
