@@ -10,8 +10,9 @@ COPY . /app
 
 # RUN npm install -g nodemon
 # RUN npm i knex
+RUN npm i @nestjs/cli
 
-ARG PORTA="8080"
+ARG PORTA="3000"
 ENV PORTA=$PORTA
 EXPOSE $PORTA
 

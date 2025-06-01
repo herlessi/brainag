@@ -7,7 +7,7 @@ module.exports = {
     inicial: {
         client: 'postgresql',
         connection: {
-            host:     'localhost',
+            host:     'banco',
             port:     5432,
             database: 'postgres',
             user:     'postgres',
@@ -24,7 +24,7 @@ module.exports = {
     desenvolvimento: {
         client: 'postgresql',
         connection: {
-            host:     'localhost',
+            host:     'banco',
             port:     5432,
             database: 'brainag',
             user:     'postgres',

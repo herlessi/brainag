@@ -1,5 +1,6 @@
 const iniciarDB = async () => {
 
+    await sleep(5000)
     const config = require('../../knexfile.js');
     const dbinicial = require('knex')(config.inicial);
 
@@ -40,8 +41,10 @@ const iniciarDB = async () => {
 
 }
 
+function sleep(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-    setTimeout(() => {
-        iniciarDB();    
-    }, 5000);
+iniciarDB();    
+
 

@@ -5,7 +5,6 @@ import { PgConfigService } from './config/pg.config.service';
 import { ConfigModule } from '@nestjs/config';
 
 
-const scriptiniciardb = require('./scripts/iniciarDB')
 
 @Module({
   imports: [
