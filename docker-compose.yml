@@ -5,12 +5,17 @@ services:
     container_name: postgresbrain
     ports:
       - 5432:5432
-    networks:
-      - teste-bridge 
+    # networks:
+    #   - teste-bridge 
     environment:
       POSTGRES_PASSWORD: admin
     volumes:
       - ./bancovolumebrain:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U postgres -d postgres'"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
 
   node:
     build:
@@ -23,11 +28,12 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-    networks:
-      - teste-bridge 
+    # networks:
+    #   - teste-bridge 
     command: "npm run start:dev"
     depends_on:
-      - banco
+      banco:
+        condition: service_healthy
   
 
       
@@ -36,8 +42,8 @@ services:
     container_name: swagger_brain_ag
     ports:
       - 8081:8080
-    networks:
-      - teste-bridge 
+    # networks:
+    #   - teste-bridge 
     environment:
       API_URL: http://localhost:8081/swagger.yml
       BASE_URL: /swagger
@@ -48,6 +54,6 @@ services:
       - node
       
 
-networks:
-  teste-bridge:
-    driver: bridge
+# networks:
+#   teste-bridge:
+#     driver: bridge

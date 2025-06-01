@@ -35,6 +35,12 @@ export class ProdutorController{
         return retorno;
     }
 
+    @Get('/teste')
+    async teste(){
+        // return this.repo.listarProdutores()
+        return {message:'ok'}
+    }
+
     @Get()
     async listarProdutores(){
         // return this.repo.listarProdutores()
