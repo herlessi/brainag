@@ -3,8 +3,8 @@ import { ProdutorController } from "./produtor.controller";
 import { ProdutorRepository } from "../adapters/drivens/produtor.reposistory";
 import { IProdutorRepository } from "../core/application/ports/out/IProdutorRepository";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { ProdutorEntity } from "src/core/domain/entity/ProdutorEntity.entity";
-import { ProdutorService } from "src/core/application/services/Produtor.service";
+import { ProdutorEntity } from "../core/domain/entity/ProdutorEntity.entity";
+import { ProdutorService } from "../core/application/services/Produtor.service";
 
 
 
@@ -13,7 +13,7 @@ import { ProdutorService } from "src/core/application/services/Produtor.service"
     controllers:[ProdutorController],
     providers:[
         ProdutorService,
-        { provide: IProdutorRepository, useClass: ProdutorRepository },
+        { provide: IProdutorRepository, useClass: ProdutorRepository }, 
     ]
 })
 export class ProdutorModule{}

@@ -31,8 +31,8 @@ export class ProdutorController{
         produtorEntity.safra = dadosusuario.safra
         produtorEntity.cultura_plantada = dadosusuario.cultura_plantada
 
-        this.produtorService.criarProdutor(produtorEntity)
-        return produtorEntity;
+        let retorno = await this.produtorService.criarProdutor(produtorEntity)
+        return retorno;
     }
 
     @Get()
@@ -41,9 +41,16 @@ export class ProdutorController{
         return this.produtorService.listaProdutores()
     }
 
+    @Get('/:id')
+    async listarProdutoresPorId(@Param('id') id:number){
+        // return this.repo.listarProdutores()
+        const produtor = await this.produtorService.listaProdutoresPorId(id)
+        return produtor;
+    }
+
     @Put('/:id')
     async atualizarProdutor(@Param('id') id:number, @Body() dadosAtualizar:AtualizarProdutoDTO){
-        console.log('passando na atualizar')
+
         await this.produtorService.updateProdutor(id,dadosAtualizar)
         const produtorAtualizado = await this.produtorService.listaProdutoresPorId(id)
         return { 
@@ -54,7 +61,7 @@ export class ProdutorController{
 
     @Delete('/:id')
     async deletarProdutor(@Param('id') id:number){
-        console.log('passando na deletar')
+
         const produtorRemovido = await this.produtorService.deleteProdutor(id)
 
         return {

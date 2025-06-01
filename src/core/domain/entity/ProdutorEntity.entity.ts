@@ -1,9 +1,11 @@
+import { IsOptional } from "class-validator";
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name:'produtores'})
 export class ProdutorEntity{
 
         @PrimaryGeneratedColumn()
+        @IsOptional()
         id:number;
 
         @Column({name:'documento',length:11,nullable:false})

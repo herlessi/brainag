@@ -1,7 +1,11 @@
-import { IsNotEmpty, IsNumber, IsString, Min, MinLength } from "class-validator";
+import { IsNotEmpty, IsNumber, IsOptional, IsString, Min, MinLength } from "class-validator";
+import { PrimaryGeneratedColumn } from "typeorm";
 
 export class CriarProdutorDTO {
-    
+    @PrimaryGeneratedColumn()
+    @IsOptional()
+    id:number
+
     @IsString({message:'O campo Documento precisa ser um texto!'})
     @IsNotEmpty({message:'Documento é um campo obrigatorio: CPF ou CNPJ!'})
     documento:string;                // CPF ou CNPJ
